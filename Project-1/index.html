@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <style>
+        @media only screen and (min-width:100px) and (max-width: 360px) {
+            .menu-content li {
+                padding-left: 7px !important;
+            }
+        }
+
+        @media only screen and (min-width: 0px) and (max-width: 630px) {
+            button {
+                width: 24% !important;
+            }
+
+            .menu ul li {
+                font-size: 12px !important;
+            }
+
+            .menu {
+                display: block !important;
+                z-index: 100;
+                width: 0;
+                position: absolute;
+                transition: all 1s;
+                height: 100vh;
+            }
+
+            .menu::before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                opacity: 0.6;
+                background-color: black;
+            }
+
+            .menu ul {
+                position: relative;
+                top: 2%;
+            }
+
+            .menu ul li:hover {
+                cursor: pointer;
+            }
+
+            .navigation-content {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                box-sizing: border-box;
+                padding-right: 30px;
+                justify-content: center;
+                align-items: center;
+                width: 45px;
+                position: relative;
+                height: 35px;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background-color: #fff;
+            }
+
+            .hamburger span:nth-child(1) {
+                transform: translateY(-9px);
+            }
+
+            .hamburger span:nth-child(3) {
+                transform: translateY(9px);
+            }
+
+            .span-child-1.active {
+                transform: rotateX(23deg) !important;
+                transition: all 0.5s;
+            }
+
+            .span-child-2.active {
+                display: none;
+                transition: all 1s;
+            }
+
+            .span-child-3.active {
+                transform: rotateX(-23deg) !important;
+                transition: all 0.5s;
+            }
+
+            .width {
+                width: 25% !important;
+            }
+
+            button {
+                font-size: 0.56rem !important;
+            }
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            color: white;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: url("tajmahal_2.jpg") no-repeat center center/cover;
+            opacity: 0.7;
+            background-repeat: no-repeat;
+            z-index: -1;
+            background-size: cover;
+        }
+
+        .header {
+            width: 100vw;
+            position: relative;
+        }
+
+        .header::before {
+            content: "";
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .navigation {
+            height: 78px;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navigation-content {
+            display: flex;
+            /*justify-content: space-evenly; */
+        }
+
+        .navigation h3 {
+            padding-left: 6%;
+        }
+
+        ul {
+            padding-right: 7%;
+        }
+
+        li {
+            list-style: none;
+            padding: 18px;
+        }
+
+        li a {
+            text-decoration: none;
+        }
+
+        li:hover {
+            cursor: pointer;
+            background-color: red;
+            border-radius: 8px;
+        }
+
+        h4,
+        h1,
+        p {
+            padding: 7px;
+            text-shadow: 0px 0px 5px black;
+        }
+
+        span {
+            color: #00ff98;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            height: 40px;
+            width: 14%;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: black;
+            padding: 3px;
+            display: inline-block;
+            border: 2px solid black;
+            margin: 5px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+        }
+
+        .button #Sign-up {
+            background-color: #1ba86f;
+            color: white;
+        }
+
+        h4 {
+            font-size: large;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            font-size: large;
+        }
+
+        .button #Sign-up:hover {
+            cursor: pointer;
+            background-color: #1b9463;
+        }
+
+        .button #Learn-more:hover {
+            cursor: pointer;
+            background-color: rgb(219, 214, 214);
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu-id" class="menu">
+        <ul class="menu-content">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">GALLERY</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </div>
+    <header class="header">
+        <nav class="navigation">
+            <h3>MERA BHARAT</h3>
+            <ul class="navigation-content">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+
+            <div id="hamburger-id" class="hamburger">
+                <span class="span-child-1"></span>
+                <span class="span-child-2"></span>
+                <span class="span-child-3"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h4>Welcome to India</h4>
+        <h1>DO COME & VISIT <span>AGRA</span></h1>
+        <p>india once is not enough</p>
+        <div class="button">
+            <button id="Learn-more">LEARN MORE</button>
+            <button id="Sign-up">SIGNUP HERE</button>
+        </div>
+    </div>
+    <script>
+        let hamburger = document.getElementById("hamburger-id");
+        let menu = document.getElementById("menu-id");
+        let layers = document.querySelectorAll(".hamburger span");
+        hamburger.addEventListener("click", () => {
+            layers.forEach((layers) => {
+                layers.classList.toggle("active");
+            })
+            menu.classList.toggle("width")
+        })
+    </script>
+</body>
+
+
+</html>
